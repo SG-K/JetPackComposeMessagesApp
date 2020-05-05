@@ -3,6 +3,7 @@ package com.example.jetpackmessagessample
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.core.content.ContextCompat.startActivity
 import androidx.ui.core.setContent
 
 class MainActivity : AppCompatActivity() {
@@ -25,7 +26,12 @@ fun fabclicks(){
 
 fun messageClik(message: Message){
     Log.v("sample_ksdjds", "messageClik - ${message.sender} ")
-
+//    startActivity(
+//        Intent(
+//            this@MainActivity,
+//            UserListActivity::class.java
+//        )
+//    )
 
 }
 
