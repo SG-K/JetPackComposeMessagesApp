@@ -15,37 +15,40 @@ import androidx.ui.text.TextStyle
 import androidx.ui.text.font.FontStyle
 import androidx.ui.text.font.FontWeight
 import androidx.ui.text.style.TextAlign
+import androidx.ui.tooling.preview.Preview
 import androidx.ui.unit.dp
 import androidx.ui.unit.sp
-import com.example.jetpackmessagessample.MessagesList
-import com.example.jetpackmessagessample.R
+import com.example.jetpackmessagessample.*
 
 @Composable
 fun ConversationListScreenView(list: MutableList<ChatMessage>,
                                itemClick : (message : ChatMessage) -> Unit){
     Scaffold(
         topAppBar = {
-            TopAppBar(
-                title = {
-                    Text(
-                        text = "Conversation",
-                        modifier = Modifier.weight(1f),
-                        style = TextStyle(
-                            textAlign = TextAlign.Center,
-                            fontStyle = FontStyle.Normal,
-                            fontWeight = FontWeight.Bold,
-                            fontSize = 20.sp
-                        )
-                    )
-                },
-                actions = {
-                    Icon(asset = vectorResource(id = R.drawable.ic_search),modifier = Modifier.padding(start = 8.dp,end = 10.dp))
-                    Icon(asset = vectorResource(id = R.drawable.ic_options_menu),modifier = Modifier.padding(start = 10.dp,end = 8.dp))
-                },
-                backgroundColor = Color.White
-            )
+            messagesListTopBar("Conversation")
         }
     ) {
         ConversationList(list = list,itemClick = itemClick)
     }
+}
+
+@Preview
+@Composable
+fun conversationsPreview(){
+    val list = generateConversationList()
+    ConversationListScreenView(list = list,
+        itemClick = { message: ChatMessage -> conversationClick(chatMessage = message) })
+}
+
+fun generateConversationList(): MutableList<ChatMessage> {
+    return (0..100).map {
+        ChatMessage(
+            senderImage = "",
+            message = "Dear patron Plz ignore the earlier SMS on due date and amt for may, we will send out the corrected SMS in a while. Regret the inconvenience caused.  Team ACT"
+        )
+    }.toMutableList()
+}
+
+fun conversationClick(chatMessage: ChatMessage){
+
 }

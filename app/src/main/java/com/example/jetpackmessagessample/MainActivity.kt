@@ -7,21 +7,37 @@ import androidx.core.content.ContextCompat.startActivity
 import androidx.ui.core.setContent
 
 class MainActivity : AppCompatActivity() {
+
+    val simpleLambda = {
+        Log.v("sample_ksdjds", "lamdaSample ")
+    }
+
+    infix fun sample(s : String) {
+
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent { 
             val list = generateMessageList()
             MessagesListScreenView(
+                title = "Messages",
                 list = list,
                 fabClick = {fabclicks()},
                 itemClick = {message: Message -> messageClik(message = message) }
             )
         }
+        simpleLambda()
+
     }
 }
 
 fun fabclicks(){
     Log.v("sample_ksdjds", "fabclicks ")
+}
+
+fun lamdaSample(){
+    Log.v("sample_ksdjds", "lamdaSample ")
 }
 
 fun messageClik(message: Message){
@@ -33,6 +49,14 @@ fun messageClik(message: Message){
 //        )
 //    )
 
+}
+
+
+fun display(name : String){
+    fun greeting(): String{
+        return "Hello "
+    }
+    Log.v("sample_ksdjds", " - ${greeting() + name} ")
 }
 
 fun generateMessageList(): MutableList<Message> {

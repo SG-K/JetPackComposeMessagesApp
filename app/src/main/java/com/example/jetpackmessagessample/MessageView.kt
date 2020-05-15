@@ -4,10 +4,7 @@ import androidx.compose.Composable
 import androidx.ui.core.Alignment
 import androidx.ui.core.Modifier
 import androidx.ui.core.clip
-import androidx.ui.foundation.Box
-import androidx.ui.foundation.Clickable
-import androidx.ui.foundation.Icon
-import androidx.ui.foundation.Text
+import androidx.ui.foundation.*
 import androidx.ui.foundation.shape.corner.CircleShape
 import androidx.ui.graphics.Color
 import androidx.ui.layout.*
@@ -21,18 +18,14 @@ import androidx.ui.unit.sp
 @Composable
 fun MessageView(message: Message,
                 itemClick : (message : Message) -> Unit){
-    Clickable(onClick = {
-        itemClick(message)
-    }) {
-        Row( modifier = Modifier.padding(16.dp)) {
-            SenderIcon()
-            Column(modifier = Modifier.padding(start = 8.dp, top = 0.dp, end = 0.dp, bottom = 0.dp)) {
-                Row(verticalGravity = Alignment.CenterVertically) {
-                    Sender(message.sender, modifier = Modifier.weight(1f))
-                    MessageTime(time = message.time)
-                }
-                ShortMessage(shortMessage = message.message)
+    Row( modifier = Modifier.padding(16.dp)) {
+        SenderIcon()
+        Column(modifier = Modifier.padding(start = 8.dp, top = 0.dp, end = 0.dp, bottom = 0.dp)) {
+            Row(verticalGravity = Alignment.CenterVertically) {
+                Sender(sender = message.sender, modifier = Modifier.weight(1f))
+                MessageTime(time = message.time)
             }
+            ShortMessage(shortMessage = message.message)
         }
     }
 }
