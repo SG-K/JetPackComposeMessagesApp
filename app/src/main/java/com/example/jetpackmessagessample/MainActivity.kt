@@ -8,13 +8,6 @@ import androidx.ui.core.setContent
 
 class MainActivity : AppCompatActivity() {
 
-    val simpleLambda = {
-        Log.v("sample_ksdjds", "lamdaSample ")
-    }
-
-    infix fun sample(s : String) {
-
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +20,6 @@ class MainActivity : AppCompatActivity() {
                 itemClick = {message: Message -> messageClik(message = message) }
             )
         }
-        simpleLambda()
 
     }
 }
