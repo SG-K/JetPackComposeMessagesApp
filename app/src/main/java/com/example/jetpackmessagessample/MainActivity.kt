@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.core.content.ContextCompat.startActivity
 import androidx.ui.core.setContent
+import com.example.jetpackmessagessample.uicomponents.listcomponents.showingCoilPreview
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,13 +13,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent { 
-            val list = generateMessageList()
-            MessagesListScreenView(
-                title = "Messages",
-                list = list,
-                fabClick = {fabclicks()},
-                itemClick = {message: Message -> messageClik(message = message) }
-            )
+//            val list = generateMessageList()
+//            MessagesListScreenView(
+//                title = "Messages",
+//                list = list,
+//                fabClick = {fabclicks()},
+//                itemClick = {message: Message -> messageClik(message = message) }
+//            )
+
+            showingCoilPreview()
         }
 
     }

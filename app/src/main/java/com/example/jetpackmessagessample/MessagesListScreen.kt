@@ -18,6 +18,9 @@ import androidx.ui.text.style.TextAlign
 import androidx.ui.tooling.preview.Preview
 import androidx.ui.unit.dp
 import androidx.ui.unit.sp
+import com.example.jetpackmessagessample.models.Actions
+import com.example.jetpackmessagessample.uicomponents.listcomponents.showingCoilPreview
+import com.example.jetpackmessagessample.uicomponents.topbarcomponents.showActions
 
 @Composable
 fun MessagesListScreenView(title : String, list : MutableList<Message>,

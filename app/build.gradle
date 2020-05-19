@@ -52,9 +52,14 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     // Jetpack compose dependencies
-    implementation "androidx.compose:compose-compiler:0.1.0-dev09"
-    implementation "androidx.compose:compose-runtime:0.1.0-dev09"
-    implementation 'androidx.ui:ui-layout:0.1.0-dev09'
-    implementation 'androidx.ui:ui-material:0.1.0-dev09'
-    implementation 'androidx.ui:ui-tooling:0.1.0-dev09'
+    implementation "androidx.compose:compose-compiler:0.1.0-dev11"
+    implementation "androidx.compose:compose-runtime:0.1.0-dev11"
+    implementation 'androidx.ui:ui-layout:0.1.0-dev11'
+    implementation 'androidx.ui:ui-material:0.1.0-dev11'
+    implementation 'androidx.ui:ui-tooling:0.1.0-dev11'
+
+//    implementation("io.coil-kt:coil:0.11.0")
+
+//    implementation "dev.chrisbanes.accompanist:accompanist-mdc-theme:1.0.0"
+    implementation "dev.chrisbanes.accompanist:accompanist-coil:0.1.2"
 }
