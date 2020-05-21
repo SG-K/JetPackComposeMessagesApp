@@ -31,6 +31,43 @@ fun samplePreview(){
 fun usingChains(){
     Scaffold(
     ) {
+
+        ConstraintLayout(constraintSet = ConstraintSet {
+
+            tag("TextViewA") constrainHorizontallyTo parent
+            tag("TextViewB") constrainHorizontallyTo parent
+            tag("TextViewC") constrainHorizontallyTo parent
+
+            createHorizontalChain(
+                tag("TextViewA"),
+                tag("TextViewB"),
+                tag("TextViewC"),
+                chainStyle = ConstraintSetBuilderScope.ChainStyle.Spread
+            )
+
+        }, modifier = Modifier.fillMaxSize()) {
+
+            Text(text = "TextViewA", modifier = Modifier.tag("TextViewA")
+                .padding(10.dp),
+                style = TextStyle(fontSize = 15.sp))
+
+            Text(text = "TextViewB", modifier = Modifier.tag("TextViewB")
+                .padding(10.dp)
+                , style = TextStyle(fontSize = 15.sp))
+
+            Text(text = "TextViewC", modifier = Modifier.tag("TextViewC")
+                .padding(10.dp)
+                , style = TextStyle(fontSize = 15.sp))
+
+        }
+
+    }
+}
+
+@Composable
+fun usingBarriers(){
+    Scaffold(
+    ) {
         ConstraintLayout(constraintSet = ConstraintSet {
 
             val barrier = createRightBarrier(tag("TextViewA"))
@@ -46,17 +83,17 @@ fun usingChains(){
 
         }, modifier = Modifier.fillMaxSize()) {
 
-            Text(text = "AAAAAA", modifier = Modifier.tag("TextViewA")
+            Text(text = "Created barrier with this view", modifier = Modifier.tag("TextViewA")
                 .padding(10.dp),
-                style = TextStyle(fontSize = 20.sp))
+                style = TextStyle(fontSize = 15.sp))
 
-            Text(text = "BBB", modifier = Modifier.tag("TextViewB")
+            Text(text = "aligned left to barrier", modifier = Modifier.tag("TextViewB")
                 .padding(10.dp)
-                , style = TextStyle(fontSize = 20.sp))
+                , style = TextStyle(fontSize = 15.sp))
 
-            Text(text = "CC", modifier = Modifier.tag("TextViewC")
+            Text(text = "aligned right to barrier", modifier = Modifier.tag("TextViewC")
                 .padding(10.dp)
-                , style = TextStyle(fontSize = 20.sp))
+                , style = TextStyle(fontSize = 15.sp))
 
         }
     }
